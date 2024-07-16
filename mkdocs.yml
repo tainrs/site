@@ -1,0 +1,16 @@
+copyright: Copyright &copy; 2024 besqua.red / tainrs<br>Logos based on work by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com">flaticon.com</a> and <a href="https://freeicons.io/profile/6200">Soni Sokell</a> on <a href="https://freeicons.io">freeicons.io</a>
+edit_uri: 'website/edit/master/docs'
+
+extra:
+  social:
+  - icon: fontawesome/brands/docker
+    link: 'https://hub.docker.com/u/tainrs'
+    name: Docker
+  - icon: fontawesome/brands/github
+    link: 'https://github.com/tainrs'
+    name: GitHub
+
+site_name: My site
+site_url: https://tainrs.dev
+theme:
+  name: material

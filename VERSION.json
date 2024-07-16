@@ -1,0 +1,7 @@
+{
+  "branch": "master",
+  "upstream_digest": "sha256:6e8bf9f36f9b5c9aa22def4fe91023f52f1c44d8c8fa49aa723d9746d89f2ec5",
+  "upstream_image": "docker.io/squidfunk/mkdocs-material",
+  "upstream_tag": "9",
+  "version": "9.5.28"
+}
