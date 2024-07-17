@@ -56,20 +56,23 @@ echo ""
 echo " ---------------------------------------------------"
 echo "To run the 'mkdocs' command, use the following command:"
 echo
-echo "  docker run --rm -it --name site -v \"\${PWD}:/docs\" -v \"\${HOME}/.ssh:/home/mkdocs/.ssh:ro\" -u \$(id -u):\$(id -g) ${org}/${image}"
+echo "  docker run --rm -it --name site -p 8000:8000 -v \"\${PWD}:/docs\" -v \"\${HOME}/.ssh:/home/mkdocs/.ssh:ro\" -u \$(id -u):\$(id -g) ${org}/${image}"
 echo
 echo "For example:"
 echo
-echo "  docker run --rm -it --name site -v \"${PWD}:/docs\" -v \"${HOME}/.ssh:/home/mkdocs/.ssh:ro\" -u $(id -u):$(id -g) ${org}/${image}"
+echo "  docker run --rm -it --name site -p 8000:8000  -v \"${PWD}:/docs\" -v \"${HOME}/.ssh:/home/mkdocs/.ssh:ro\" -u $(id -u):$(id -g) ${org}/${image}"
 echo
 if is_sourced; then
-    alias mkdocs='docker run --rm -it --name site -v "${PWD}:/docs" -v "${HOME}/.ssh:/home/mkdocs/.ssh:ro" -u $(id -u):$(id -g) tainrs/site'
-    echo "Created 'mkdocs' alias for use in the current environment."
+    alias mkdocs='docker run --rm -it --name site -p 8000:8000 -v "${PWD}:/docs" -v "${HOME}/.ssh:/home/mkdocs/.ssh:ro" -u $(id -u):$(id -g) tainrs/site'
+    alias mkdocs-serve='docker run --rm -it --name site -p 8000:8000 -v "${PWD}:/docs" -v "${HOME}/.ssh:/home/mkdocs/.ssh:ro" -u $(id -u):$(id -g) tainrs/site serve --dev-addr=0.0.0.0:8000'
+    alias mkdocs-deploy='docker run --rm -it --name site -p 8000:8000 -v "${PWD}:/docs" -v "${HOME}/.ssh:/home/mkdocs/.ssh:ro" -u $(id -u):$(id -g) tainrs/site gh-deploy --clean --no-history --force'
+    echo "Created 'mkdocs', 'mkdocs-serve' and 'mkdocs-deploy' aliases for use in the current environment."
 else
-    echo "For ease of use, you call this script by sourcing it in your current shell session."
-    echo "An 'mkdocs' alias will be created for use in the current environment."
+    echo "Reminder: If you want to 'serve' the site, use the 'serve --dev-addr=0.0.0.0:8000' command."
+    echo "          Otherwise 127.0.0.1 is used which does not work in a container."
     echo
-    echo "  source build.sh"
+    echo "Tip:      For ease of use, you call this script by sourcing it in your current shell session."
+    echo "          'mkdocs', 'mkdocs-serve' and 'mkdocs-deploy' aliases will be created for use in the current environment."
 fi
 echo
 echo " ---------------------------------------------------"

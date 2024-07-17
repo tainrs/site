@@ -26,8 +26,11 @@ RUN set -e ;\
     chmod +x /entrypoint.sh
 
 # Install additional mkdocs plugins
-# RUN pip install mkdocs-macros-plugin
-# RUN pip install mkdocs-glightbox
+RUN set -e ;\
+    pip install mkdocs-cinder mkdocs-material ;\
+    pip install mkdocs-optimize-plugin ;\
+    pip install markdown ;\
+    pip install pymdown-extensions
 
 # Create mkdocs user and group
 RUN set -e ;\
