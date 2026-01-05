@@ -28,7 +28,7 @@ RUN set -e ;\
 # Install additional mkdocs plugins
 RUN set -e ;\
     pip install mkdocs-cinder mkdocs-material ;\
-    pip install mkdocs-optimize-plugin ;\
+    pip install "mkdocs-material[imaging]" ;\
     pip install markdown ;\
     pip install pymdown-extensions
 
