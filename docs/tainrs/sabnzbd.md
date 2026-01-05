@@ -11,15 +11,15 @@ hide:
 
     ```shell linenums="1"
     docker run --rm \
-        --name sonarr \
-        -p 8989:8989 \
+        --name sabnzbd \
+        -p 8080:8080 \
         -e PUID=1000 \ #(1)!
         -e PGID=1000 \ #(2)!
         -e UMASK=002 \ #(3)!
         -e TZ="Etc/UTC" \
         -v ~/config:/config \ #(4)!
         -v ~/data:/data \
-        docker.io/tainrs/sonarr
+        docker.io/tainrs/sabnzbd
     ```
 
     --8<-- "includes/annotations.md"
@@ -28,11 +28,11 @@ hide:
 
     ```yaml linenums="1"
     services:
-      sonarr:
-        container_name: sonarr
-        image: docker.io/tainrs/sonarr
+      sabnzbd:
+        container_name: sabnzbd
+        image: docker.io/tainrs/sabnzbd
         ports:
-          - "8989:8989"
+          - "8080:8080"
         environment:
           - PUID=1000 #(1)!
           - PGID=1000 #(2)!
@@ -45,6 +45,6 @@ hide:
 
     --8<-- "includes/annotations.md"
 
-This is the Sonarr container.
+This is the SABnzbd container.
 
 --8<-- "includes/tags.md"

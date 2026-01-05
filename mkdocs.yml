@@ -69,6 +69,7 @@ nav:
     - tainrs/prowlarr: tainrs/prowlarr.md
     - tainrs/radarr: tainrs/radarr.md
     - tainrs/readarr: tainrs/readarr.md
+    - tainrs/sabnzbd: tainrs/sabnzbd.md
     - tainrs/sonarr: tainrs/sonarr.md
 
 markdown_extensions:
